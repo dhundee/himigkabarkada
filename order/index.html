@@ -23,7 +23,9 @@
   header h1 { font-size: 24px; margin: 0; }
   header .brand { color: var(--accent); font-weight: 600; margin: 0 0 4px; font-size: 14px; letter-spacing: .02em; }
   header p { color: var(--muted); margin: 8px 0 0; }
-  fieldset { border: 1px solid var(--line); border-radius: 12px; background: var(--card); margin: 20px 0 0; padding: 16px; }
+  fieldset { border: 1px solid var(--line); border-radius: 12px; background: var(--card); margin: 20px 0 0; padding: 16px; min-width: 0; }
+  .opt > span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .opt input[type=text] { display: block; width: 100%; margin-top: 6px; height: auto; }
   legend { font-weight: 600; padding: 0 6px; }
   .q { margin-top: 14px; }
   .q:first-of-type { margin-top: 4px; }
@@ -33,7 +35,7 @@
          border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
   textarea { min-height: 88px; resize: vertical; }
   .opt { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; }
-  .opt input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent); }
+  .opt input[type=checkbox], .opt input[type=radio] { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent); }
   .opt small { display: block; color: var(--muted); }
   input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
