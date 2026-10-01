@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Order Form · Himig Kabarkada</title>
+<style>
+  :root {
+    --bg: #f7f4ee; --card: #ffffff; --text: #1d1b2e; --muted: #5d5a6e; --line: #e2ddd2;
+    --accent: #b8741a; --accent-text: #ffffff; --focus: #2a5bd7; --error: #b3261e; --ok: #1e6b35;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14122a; --card: #1e1b38; --text: #f3efe6; --muted: #b7b2c9; --line: #34305a;
+      --accent: #f0b04a; --accent-text: #1d1b2e; --focus: #8fb0ff; --error: #ff8a80; --ok: #7fd39a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 0 16px; }
+  main { max-width: 560px; margin: 0 auto; padding: 28px 0 56px; }
+  header h1 { font-size: 24px; margin: 0; }
+  header .brand { color: var(--accent); font-weight: 600; margin: 0 0 4px; font-size: 14px; letter-spacing: .02em; }
+  header p { color: var(--muted); margin: 8px 0 0; }
+  fieldset { border: 1px solid var(--line); border-radius: 12px; background: var(--card); margin: 20px 0 0; padding: 16px; }
+  legend { font-weight: 600; padding: 0 6px; }
+  .q { margin-top: 14px; }
+  .q:first-of-type { margin-top: 4px; }
+  .q > label, .q > .label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .hint { color: var(--muted); font-weight: 400; font-size: 14px; }
+  input[type=text], textarea { width: 100%; font: inherit; color: var(--text); background: var(--bg);
+         border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+  textarea { min-height: 88px; resize: vertical; }
+  .opt { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; }
+  .opt input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent); }
+  .opt small { display: block; color: var(--muted); }
+  input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .notice { font-size: 14px; color: var(--muted); }
+  button { width: 100%; margin-top: 24px; font: inherit; font-weight: 600; border: 0; border-radius: 10px;
+           padding: 14px; background: var(--accent); color: var(--accent-text); cursor: pointer; }
+  button[disabled] { opacity: .6; cursor: progress; }
+  .error { color: var(--error); margin-top: 12px; }
+  .done { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 20px; margin-top: 20px; }
+  .done h2 { margin: 0 0 8px; font-size: 20px; color: var(--ok); }
+  .pay { font-size: 18px; font-weight: 600; margin: 12px 0; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 28px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="brand">Himig Kabarkada · Harana Studio Lucena</p>
+  <h1>Jingle Starter<span id="for-biz"></span></h1>
+  <p>Mga 90 segundo lang po. Nakalagay na po ang alam ko tungkol sa inyo; itama n'yo lang po kung mali. Halos lahat po ay pili-pili lang, at optional ang lahat ng nasa "Corrections".</p>
+</header>
+
+<form id="order" novalidate>
+  <fieldset>
+    <legend>1 · Check these</legend>
+    <div class="q"><label for="business_name">Business name <span class="hint">(itama kung mali)</span></label>
+      <input type="text" id="business_name" name="business_name" maxlength="200" required autocomplete="organization"></div>
+    <div class="q"><label for="address">Address</label>
+      <input type="text" id="address" name="address" maxlength="300" required></div>
+    <div class="q"><label for="best_offering">Pinaka-kilalang produkto o serbisyo</label>
+      <input type="text" id="best_offering" name="best_offering" maxlength="300" required></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>2 · Your choice</legend>
+    <div class="q"><span class="label">Ano po ang gusto ninyo? <span class="hint">(pumili ng kahit isa)</span></span>
+      <label class="opt"><input type="checkbox" name="choices" value="fast_track"><span>⚡ <b>Fast Track:</b> keep my sample exactly as-is<small>₱3,500 in full, no changes</small></span></label>
+      <label class="opt"><input type="checkbox" name="choices" value="full"><span><b>Full Jingle Starter:</b> I want some changes<small>Ilagay sa ibaba ang gusto ninyong baguhin · 50% deposit (₱1,750)</small></span></label>
+      <label class="opt"><input type="checkbox" name="choices" value="real_singer"><span><b>+ Real-singer upgrade</b><small>+₱2,500, on request; babayaran lang pagka-approve ninyo ng real-voice version</small></span></label>
+      <label class="opt"><input type="checkbox" name="choices" value="not_now"><span>Not now / just curious</span></label>
+      <label class="opt"><input type="checkbox" name="choices" value="question"><span>May tanong muna ako</span></label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>3 · Corrections and additions <span class="hint">(optional)</span></legend>
+    <div class="q"><span class="label">Tunog</span>
+      <label class="opt"><input type="radio" name="sound" value="Masigla (lively)"><span>Masigla (lively)</span></label>
+      <label class="opt"><input type="radio" name="sound" value="Chill"><span>Chill</span></label>
+      <label class="opt"><input type="radio" name="sound" value="Same as my sample"><span>Pareho sa sample ko</span></label>
+      <label class="opt"><input type="radio" name="sound" value="other"><span>Iba pa: <input type="text" id="sound_other" maxlength="150" aria-label="Ibang tunog"></span></label>
+    </div>
+    <div class="q"><span class="label">Wika</span>
+      <label class="opt"><input type="radio" name="language" value="Tagalog"><span>Tagalog</span></label>
+      <label class="opt"><input type="radio" name="language" value="Taglish"><span>Taglish</span></label>
+      <label class="opt"><input type="radio" name="language" value="English"><span>English</span></label>
+    </div>
+    <div class="q"><span class="label">Isama sa jingle</span>
+      <label class="opt"><input type="checkbox" name="mentions" value="Address or location"><span>Address o lokasyon</span></label>
+      <label class="opt"><input type="checkbox" name="mentions" value="Best-seller"><span>Best-seller</span></label>
+      <label class="opt"><input type="checkbox" name="mentions" value="Promo or price line"><span>Promo o presyo</span></label>
+      <label class="opt"><input type="checkbox" name="mentions" value="Opening hours"><span>Oras ng bukas</span></label>
+      <label class="opt"><input type="checkbox" name="mentions" value="Phone or Facebook name"><span>Phone o Facebook name</span></label>
+      <label class="opt"><span style="width:20px"></span><span style="flex:1">Iba pa: <input type="text" id="mention_other" maxlength="200" aria-label="Iba pang isasama"></span></label>
+    </div>
+    <div class="q"><label for="slogan">Slogan, motto, o anumang gustong isama</label>
+      <textarea id="slogan" maxlength="2000"></textarea></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>4 · About you</legend>
+    <div class="q"><label for="contact">Pangalan at contact number <span class="hint">(phone o Messenger name)</span></label>
+      <input type="text" id="contact" maxlength="200" required autocomplete="name"></div>
+    <div class="q"><span class="label">Kayo po ba ang may-ari o nagdedesisyon?</span>
+      <label class="opt"><input type="radio" name="decider" value="yes"><span>Opo</span></label>
+      <label class="opt"><input type="radio" name="decider" value="pass_to_owner"><span>Ipapasa ko po sa may-ari</span></label>
+      <label class="opt"><input type="radio" name="decider" value="not_sure"><span>Hindi sigurado</span></label>
+    </div>
+    <div class="trap" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" tabindex="-1" autocomplete="off"></div>
+    <div class="q">
+      <label class="opt"><input type="checkbox" id="confirmed" required><span>Nabasa ko po ang page 1 ng Offer Sheet, kasama na AI-assisted ang music at non-exclusive ang melody.</span></label>
+      <label class="opt"><input type="checkbox" id="privacy_ok" required><span class="notice">Pumapayag po ako na gamitin ang mga sagot ko para lang sa order na ito. Si Randy Lorenzano lang ang may access; hindi ito ibinabahagi o ibinebenta. Para ipabura, mag-email sa randy@kabarkada.com. <i>(Data Privacy Act of 2012)</i></span></label>
+    </div>
+  </fieldset>
+
+  <button type="submit" id="send">Ipadala ang order</button>
+  <p class="error" id="error" role="alert" hidden></p>
+</form>
+
+<section class="done" id="done" hidden aria-live="polite">
+  <h2>Salamat po! Natanggap ko na.</h2>
+  <div id="done-body"></div>
+  <p class="notice">Business registration is pending, so I cannot issue Official Receipts at the moment; your GCash confirmation is your proof of payment.</p>
+</section>
+
+<footer>Himig Kabarkada · Lucena, Quezon · randy@kabarkada.com</footer>
+</main>
+
+<script>
+(() => {
+  const SUPABASE_URL = "https://wbhwxmtqnmtnjaikykdl.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_mC7DwJSrFkGhzwy-8dZdsg_Se8Oj8ng";   // public by design: it can only add an order
+  const GCASH = "GCash 0998-846-8847 · Randy Lorenzano";
+
+  const params = new URLSearchParams(location.search);
+  const $ = id => document.getElementById(id);
+  for (const [field, key] of [["business_name", "b"], ["address", "a"], ["best_offering", "o"]]) {
+    if (params.get(key)) $(field).value = params.get(key);
+  }
+  if (params.get("b")) $("for-biz").textContent = " para sa " + params.get("b");
+  const prospect = (params.get("p") || "").slice(0, 40) || null;
+
+  const picked = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
+  const text = id => $(id).value.trim() || null;
+  const fail = msg => { const e = $("error"); e.textContent = msg; e.hidden = false; e.scrollIntoView({ block: "center" }); };
+
+  $("order").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    $("error").hidden = true;
+    const choices = picked("choices");
+    if (!text("business_name") || !text("address") || !text("best_offering")) return fail("Pakicheck po ang business name, address at produkto (part 1).");
+    if (!choices.length) return fail("Pumili po ng kahit isa sa part 2.");
+    if (!text("contact")) return fail("Pakilagay po ang pangalan at contact number (part 4).");
+    if (!$("confirmed").checked || !$("privacy_ok").checked) return fail("Paki-check po ang dalawang kahon sa dulo ng part 4.");
+
+    let sound = picked("sound")[0] || null;
+    if (sound === "other") sound = text("sound_other") ? "Other: " + text("sound_other") : null;
+    const order = {
+      prospect_code: prospect, business_name: text("business_name"), address: text("address"),
+      best_offering: text("best_offering"), choices, sound, language: picked("language")[0] || null,
+      mentions: picked("mentions"), mention_other: text("mention_other"), slogan: text("slogan"),
+      contact: text("contact"), decider: picked("decider")[0] || null, confirmed: true, privacy_ok: true,
+    };
+
+    $("send").disabled = true; $("send").textContent = "Ipinapadala…";
+    try {
+      if (!$("website").value) {   // bots fill the hidden field; skip sending for them
+        const res = await fetch(SUPABASE_URL + "/rest/v1/orders", {
+          method: "POST",
+          headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+          body: JSON.stringify(order),
+        });
+        if (!res.ok) throw new Error(res.status);
+      }
+    } catch (err) {
+      $("send").disabled = false; $("send").textContent = "Ipadala ang order";
+      return fail("Hindi po naipadala. Pakisubukan ulit, o i-message na lang po ako sa Facebook. (" + err.message + ")");
+    }
+
+    const lines = [];
+    if (choices.includes("fast_track")) lines.push(`<p class="pay">Fast Track: ₱3,500 in full</p>`);
+    else if (choices.includes("full")) lines.push(`<p class="pay">Full Jingle Starter: 50% deposit ₱1,750</p>`);
+    if (choices.includes("fast_track") || choices.includes("full")) {
+      lines.push(`<p>Ipadala po sa <b>${GCASH}</b>, tapos i-send ang screenshot ng payment sa ating chat sa Facebook (o sa randy@kabarkada.com).</p>`);
+      if (choices.includes("real_singer")) lines.push(`<p>Real-singer upgrade: +₱2,500, babayaran lang po pagka-approve ninyo ng real-voice version.</p>`);
+    } else {
+      lines.push(`<p>Sasagutin ko po kayo sa ating chat sa Facebook. Walang kailangang bayaran ngayon.</p>`);
+    }
+    $("done-body").innerHTML = lines.join("");
+    $("order").hidden = true; $("done").hidden = false; $("done").scrollIntoView({ block: "start" });
+  });
+})();
+</script>
+</body>
+</html>
